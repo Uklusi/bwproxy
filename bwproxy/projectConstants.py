@@ -102,8 +102,8 @@ CACHE_LOC = "cardcache/cardcache.p"
 TOKEN_CACHE_LOC = "cardcache/tokencache.p"
 BACK_CARD_SYMBOLS_LOC = "symbols"
 
-SERIF_FONT = "fonts/matrixb.ttf"
-MONOSPACE_FONT = "fonts/MPLANTIN.ttf"
+PROMINENT_FONT = "fonts/prominent.ttf"
+BASIC_FONT = "fonts/basic.ttf"
 
 # MTG constants: colors, basic lands, color names...
 

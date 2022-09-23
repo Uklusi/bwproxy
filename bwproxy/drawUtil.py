@@ -545,7 +545,7 @@ def drawTitleLine(
         #
         # It also helps with cards like Progenitus or Emergent Ultimatum
         manaFont = fitOneLine(
-            fontPath=C.SERIF_FONT,
+            fontPath=C.PROMINENT_FONT,
             text=manaCost,
             maxWidth=maxManaWidth,
             fontSize=C.TITLE_FONT_SIZE,
@@ -581,7 +581,7 @@ def drawTitleLine(
     # Section for card indicator at left of the name (dfc and flip)
     # It is separated from title because we want it always at max size
     if card.face_type in C.DFC_LAYOUTS or card.face_type == C.FLIP:
-        faceSymbolFont = ImageFont.truetype(C.SERIF_FONT, size=C.TITLE_FONT_SIZE)
+        faceSymbolFont = ImageFont.truetype(C.PROMINENT_FONT, size=C.TITLE_FONT_SIZE)
         faceSymbol = f"{C.FONT_CODE_POINT[card.face_symbol]} "
         pen.text(
             (
@@ -603,7 +603,7 @@ def drawTitleLine(
         maxNameWidth -= faceSymbolSpace
 
     nameFont = fitOneLine(
-        fontPath=C.SERIF_FONT,
+        fontPath=C.PROMINENT_FONT,
         text=displayName,
         maxWidth=maxNameWidth,
         fontSize=C.TITLE_FONT_SIZE,
@@ -632,7 +632,7 @@ def drawTitleLine(
         C.AFTER,
         C.FLIP,
     ]:
-        trueNameFont = ImageFont.truetype(font=C.SERIF_FONT, size=C.TEXT_FONT_SIZE)
+        trueNameFont = ImageFont.truetype(font=C.PROMINENT_FONT, size=C.TEXT_FONT_SIZE)
         pen.text(
             (
                 (layoutInfo.BORDER.LEFT + layoutInfo.BORDER.RIGHT) // 2,
@@ -678,7 +678,7 @@ def drawTypeLine(
     pen = ImageDraw.Draw(image)
 
     typeFont = fitOneLine(
-        fontPath=C.SERIF_FONT,
+        fontPath=C.PROMINENT_FONT,
         text=card.type_line,
         maxWidth=maxWidth,
         fontSize=C.TYPE_FONT_SIZE,
@@ -753,7 +753,7 @@ def drawTextBox(
     pen = ImageDraw.Draw(image)
 
     (fmtText, textFont) = fitMultiLine(
-        fontPath=C.MONOSPACE_FONT,
+        fontPath=C.BASIC_FONT,
         cardText=cardText,
         maxWidth=maxWidth,
         maxHeight=maxHeight,
@@ -783,7 +783,7 @@ def drawFuseText(card: Card, image: Image.Image) -> Image.Image:
     pen = ImageDraw.Draw(image)
 
     fuseTextFont = fitOneLine(
-        fontPath=C.MONOSPACE_FONT,
+        fontPath=C.PROMINENT_FONT,
         text=card.fuse_text,
         maxWidth=C.CARD_V - 2 * C.BORDER,
         fontSize=C.TEXT_FONT_SIZE,
@@ -836,7 +836,7 @@ def drawPTL(
     pen = ImageDraw.Draw(image)
 
     ptlFont = fitOneLine(
-        fontPath=C.MONOSPACE_FONT,
+        fontPath=C.BASIC_FONT,
         text=ptl,
         maxWidth=layoutInfo.SIZE.PTL_BOX_H - 2 * C.BORDER,
         fontSize=C.TITLE_FONT_SIZE,
@@ -881,7 +881,7 @@ def drawOther(
 
     pen = ImageDraw.Draw(image)
 
-    credFont = ImageFont.truetype(C.MONOSPACE_FONT, size=C.OTHER_FONT_SIZE)
+    credFont = ImageFont.truetype(C.BASIC_FONT, size=C.OTHER_FONT_SIZE)
     pen.text(
         (
             alignOtherLeft,
@@ -899,7 +899,7 @@ def drawOther(
     )
     credLength = pen.textlength(text=C.CREDITS + "   ", font=credFont)
 
-    proxyFont = ImageFont.truetype(C.SERIF_FONT, size=C.OTHER_FONT_SIZE * 4 // 3)
+    proxyFont = ImageFont.truetype(C.PROMINENT_FONT, size=C.OTHER_FONT_SIZE * 4 // 3)
     pen.text(
         (
             alignOtherLeft + credLength,
